@@ -38,7 +38,7 @@ export default {
                         <strong>{{ this.users.name}}</strong>
                     </div>
                     <div class="col mt-2">
-                        <div class="imgWidth" @click="this.dialog = !this.dialog" v-if="this.users.images !=null"> <img class="card-img-top w-100 h-100" :src="this.users.images.lg" alt="Card image cap"></div>
+                        <div class="imgWidth" id="allImages" @click="this.dialog = !this.dialog" v-if="this.users.images !=null"> <img class="card-img-top w-100 h-100" :src="this.users.images.lg" alt="Card image cap"></div>
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@ export default {
     <div>
         <div class="dialog" v-if="dialog">
             <div class="dialog-content">    
-                <button @click="toggleDialog()" class="close-icon" >x</button>
+                <button @click="toggleDialog()" id="close" class="close-icon" >x</button>
                 <ImageListPage :msg="this.userImages" />
             </div>
         </div>

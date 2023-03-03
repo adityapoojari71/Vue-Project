@@ -61,10 +61,10 @@ import MyPagination from  '../components/pagination.vue';
         <form class="form-inline my-2 my-lg-0">
           <div class="row">
            <div class="col-10">
-            <input class="form-control mr-sm-2" v-on:keyup.enter="filteredUSer()"  v-model="searchQuery" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control mr-sm-2" id="search" v-on:keyup.enter="filteredUSer()"  v-model="searchQuery" type="search" placeholder="Search" aria-label="Search">
            </div>
            <div class="col-2">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="button" @click="filteredUSer();">Search</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" id="searchUserButton" type="button" @click="filteredUSer();">Search</button>
            </div>
           </div>
         </form>
@@ -83,7 +83,7 @@ import MyPagination from  '../components/pagination.vue';
               <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa-solid fa-circle-user"></i> {{logedUserName}}
               </a>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <ul class="dropdown-menu"  aria-labelledby="dropdownMenuButton1">
                 <li><a class="dropdown-item" href="#">Action</a></li><hr>
                 <li><a class="dropdown-item" href="#">Another action</a></li><hr>
                 <li><a class="dropdown-item" href="#" @click="logout()">Log Out</a></li>
@@ -101,7 +101,7 @@ import MyPagination from  '../components/pagination.vue';
       </div>
     <div class="cards-container" >
       <div v-for="(hero,index) in users">
-          <div class="card" data-toggle="tooltip" data-placement="right" :title="hero.biography.fullName" @click="userDetailPage(hero.id)">
+          <div class="card" id="userCard" data-toggle="tooltip" data-placement="right" :title="hero.biography.fullName" @click="userDetailPage(hero.id)">
               <h4 class="text-left font-weight-bold pt-3  ml-5" data-toggle="tooltip" data-placement="right" :title="hero.biography.fullName"  v-if="hero.biography.fullName !== ''">{{hero.biography.fullName.slice(0,15)}}<small v-if="hero.biography.fullName.length>15">....</small></h4><h4 class="text-left font-weight-bold pt-3"  v-if="hero.biography.fullName == ''">&nbsp;</h4>
               <div class="imgWidth" v-if="hero.images !=null"> <img class="card-img-top w-100 h-100" :src="hero.images.lg" alt="Card image cap"> </div>
               <P class="text-left ml-2" >{{hero.biography.placeOfBirth}}</P>

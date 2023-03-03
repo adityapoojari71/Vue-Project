@@ -55,16 +55,16 @@
 
             <!-- Email input -->
             <div class="form-outline mb-4">
-                <input type="email" v-model="email" required id="form3Example3" class="form-control form-control-lg"
+                <input type="email" v-model="email" required id="email" class="form-control form-control-lg"
                 placeholder="Enter a valid email address" />
-                <label class="form-label" for="form3Example3">Email address</label>
+                <label class="form-label" for="email">Email address</label>
             </div>
 
             <!-- Password input -->
             <div class="form-outline mb-3">
-                <input type="password" v-model="password" id="form3Example4" class="form-control form-control-lg"
+                <input type="password" v-model="password" id="password" class="form-control form-control-lg"
                 placeholder="Enter password" />
-                <label class="form-label" for="form3Example4">Password</label>
+                <label class="form-label" for="password">Password</label>
             </div>
 
             <div class="d-flex justify-content-between align-items-center">
@@ -79,7 +79,7 @@
             </div>
 
             <div class="text-center text-lg-start mt-4 pt-2">
-                <button type="button" class="btn btn-primary btn-lg" @click="addUser();"
+                <button type="button" id="loginButton" class="btn btn-primary btn-lg" @click="addUser();"
                 style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
                 <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
                     class="link-danger">Register</a></p>
