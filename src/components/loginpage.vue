@@ -4,6 +4,7 @@
             return {
             email: '',
             password:'',
+            forgotPasswordShow:false,
             }
         },
         methods:{
@@ -75,13 +76,13 @@
                     Remember me
                 </label>
                 </div>
-                <a href="#!" class="text-body">Forgot password?</a>
+                <a href="#!" class="text-body" @click="forgotPasswordShow = !forgotPasswordShow">Forgot password?</a>
             </div>
 
             <div class="text-center text-lg-start mt-4 pt-2">
                 <button type="button" id="loginButton" class="btn btn-primary btn-lg" @click="addUser();"
                 style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-                <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
+                <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="" @click="this.$router.push({ path: `/signup`,})"
                     class="link-danger">Register</a></p>
             </div>
 
@@ -114,7 +115,32 @@
         </div>
         <!-- Right -->
     </div>
+    
+    <div>
+        <div class="dialog" v-if="forgotPasswordShow">
+            <div class="dialog-contents">    
+                <div class="card text-center" style="width: 300px;">
+                    <div class="card-header h5 text-white bg-primary">Password Reset <i class="fa-sharp fa-regular fa-circle-xmark" @click="forgotPasswordShow = !forgotPasswordShow"></i></div>
+                    <div class="card-body px-5">
+                        <p class="card-text py-2">
+                            Enter your email address and we'll send you an email with instructions to reset your password.
+                        </p>
+                        <div class="form-outline">
+                            <input type="email" id="typeEmail" class="form-control my-3" />
+                            <label class="form-label" for="typeEmail">Email input</label>
+                        </div>
+                        <a href="#" class="btn btn-primary w-100">Reset password</a>
+                        <div class="d-flex justify-content-between mt-4">
+                            <a class="" href="" @click="this.$router.push({ path: `/login`,})">Login</a>
+                            <a class="" href="" @click="this.$router.push({ path: `/signup`,})">Register</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     </section>
+
 </template>
 
 <style>
@@ -132,5 +158,14 @@
     .h-custom {
     height: 100%;
     }
+    }
+
+    .dialog-contents {
+        background-color: none;
+        position: fixed;
+        top: 0px;    
+        right: 45%;
+        margin: 0 auto;       
+
     }
 </style>
