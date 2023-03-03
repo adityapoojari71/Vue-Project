@@ -15,8 +15,8 @@ describe('Login Tests', function () {
       // login Credential
       const userId ="adityapoojari71@gmail.com";
       const password ="123456";
-      cy.get('#email').type(userId)
-      cy.get('#password').type(password)
+      cy.get('#email').type(userId).should('have.value', userId)
+      cy.get('#password').type(password).should('have.value', password)
       cy.get('#loginButton')
       .click()
 
@@ -42,17 +42,10 @@ describe('Login Tests', function () {
 
       //code for back screen
       cy.go('back')
-      // cy.contains('li', 'Log Out')
-      // cy.get('#navbarSupportedContent .dropdown-menu ul.list > li').each(($ele) => {
-      //   console.log($ele)
-      //   cy.log($ele.text()) //prints Home Page Hello Hi
-      // })
-      // cy.on('uncaught:exception', (err, runnable) => {
-      //   console.log(err)
-      //   cy.get('#dropdownMenuButton1').click({force: true})
-      //   return false
-      // })
-
+      cy.once('uncaught:exception', () => false);
+      cy.get('#dropdownMenuButton1').click({force: true})
+      cy.wait(1000)
+      cy.get(':nth-child(5) > .dropdown-item').click()
 
   })
 })

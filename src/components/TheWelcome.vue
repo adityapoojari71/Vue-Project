@@ -84,9 +84,9 @@ import MyPagination from  '../components/pagination.vue';
                 <i class="fa-solid fa-circle-user"></i> {{logedUserName}}
               </a>
               <ul class="dropdown-menu"  aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Action</a></li><hr>
-                <li><a class="dropdown-item" href="#">Another action</a></li><hr>
-                <li><a class="dropdown-item" href="#" @click="logout()">Log Out</a></li>
+                <li><a class="dropdown-item" href="">Action</a></li><hr>
+                <li><a class="dropdown-item" href="">Another action</a></li><hr>
+                <li><a class="dropdown-item" href="" @click="logout()">Log Out</a></li>
               </ul>
             </li>
           </ul>
